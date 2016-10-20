@@ -7,11 +7,11 @@ var layerPopupSlideObj=(function (mod){
   var layerwrap = $('.layerwrap');//弹窗总模块
   //左滑动函数:
   var layerPopupLFn = function(){
-    layerwrap.animate({left:'0rem'},[100]);
+    layerwrap.css('display','block').animate({left:'0rem'},{ duration:300, easing:'ease', complete:function(){}});
   };
   //右滑动函数:
   var layerPopupRFn = function(){
-    layerwrap.animate({left:'100%'},[100]);
+    layerwrap.animate({left:'100%'},{ duration:300, easing:'ease', complete:function(){$(this).css('display','none')}});
   };
   return {
     'layerPopupRFn':layerPopupRFn,
@@ -37,17 +37,17 @@ var layerPopupSlideEv=(function (layerPopupSlideObj){
 
   // 弹窗右滑动事件：
   var layerPopupR = function(attr){
-    attr.on('touchstart',function(){
+    attr.on('singleTap',function(){
       layerPopupSlideObj.layerPopupRFn();
       $('.layercontent').removeClass('linkpersonalShow invoiceShow couponShow cbDeducShow pcodeShow');
     });
   };
   layerPopupR(fanhui);
-  layerPopupR(layerSubmitBtn);
+  //layerPopupR(layerSubmitBtn);
 
   // 弹窗左滑动事件：
   var layerPopupL =function(attr,txt,cla1,cla2){
-    attr.on('touchstart',function(){
+    attr.on('singleTap',function(){
       layerPopupSlideObj.layerPopupLFn();
       layerTit.text(txt);
       $('.layercontent').addClass(cla1).removeClass(cla2);
@@ -84,12 +84,12 @@ var cancelOrdeLayer=(function(mod){
   });
   //隐藏：
   var cancelOrdeHide = function(attr){
-    attr.on('touchstart',function(){
+    attr.on('singleTap',function(){
       cancelOrdeLayer_bg.hide();
       cancelOrdeLayer_con.hide();
     });
   };
-  cancelOrdeHide(COL_true);
+  //cancelOrdeHide(COL_true);
   cancelOrdeHide(COL_cancel);
 
   return mod;

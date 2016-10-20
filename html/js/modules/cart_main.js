@@ -20,15 +20,6 @@ var headerTopFn = (function(mod){
   return mod;
 })(window.headerTopFn || {});
 
-/* tabNav */
-var tabNavFn = (function(mod){
-  var tabNavCur= $('.tabNav a');
-  tabNavCur.on('touchstart',function(){
-    $(this).addClass('tabNav_cur').siblings().removeClass('tabNav_cur');
-  });
-  return mod;
-})(window.tabNavFn || {});
-
 /* 滑动函数： */
 /**
  * swipe事件，包括swipeLeft、swipeRight、swipeUp、swipeDown。
@@ -44,7 +35,7 @@ var tabNavFn = (function(mod){
   Rhui.mobile = (function(){
     var touch = {
       distance: 30,  //滑动距离，超过该距离触发swipe事件，单位像素。
-      duration: 1000 //滑动时长，超过该时间不触发swipe，单位毫秒。
+      duration: 300 //滑动时长，超过该时间不触发swipe，单位毫秒。
     };
 
     /**
@@ -251,7 +242,7 @@ for(var i=0;i<numSlide;i++){
   }, {
     // 可选参数
     isStopPropagation: true,
-    isPreventDefault: true,
+    isPreventDefault: false,
     triggerOnMove: true
   });
 //订单右滑动效果调用:
@@ -261,7 +252,7 @@ for(var i=0;i<numSlide;i++){
   }, {
     // 可选参数
     isStopPropagation: true,
-    isPreventDefault: true,
+    isPreventDefault: false,
     triggerOnMove: true
   });
 }
