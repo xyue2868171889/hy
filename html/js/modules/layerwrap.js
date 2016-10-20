@@ -78,7 +78,7 @@ var cancelOrdeLayer=(function(mod){
       COL_cancel=$('.COL_cancel');
 
   //显示：
-  cancelOrdeBtn.on('touchstart',function(){
+  cancelOrdeBtn.on('singleTap',function(){
     cancelOrdeLayer_bg.show();
     cancelOrdeLayer_con.show();
   });

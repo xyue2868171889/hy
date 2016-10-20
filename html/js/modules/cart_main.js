@@ -7,11 +7,11 @@ var headerTopFn = (function(mod){
   var DropDownShow = $('.DropDown_show'),
     header_DDList=$('.header_DDList a');
 
-  DropDownShow.on('touchstart',function(){
+  DropDownShow.on('singleTap',function(){
     $(this).parents('.headertop').toggleClass('headertop_downShow');
   });
 
-  header_DDList.on('touchstart',function(){
+  header_DDList.on('singleTap',function(){
     var txt = $(this).text();
     $(this).addClass('headerNav_active').siblings().removeClass('headerNav_active');
     $(this).parents('.header_dropDown').siblings('.title').find('em').text(txt);

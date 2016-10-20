@@ -7,7 +7,7 @@ var cancelOrdeLayer=(function(mod){
     COL_cancel=$('.COL_cancel'),
     Order_url;
       //显示：
-  ordCt_cancelOrder.on('touchstart',function(){
+  ordCt_cancelOrder.on('singleTap',function(){
     Order_url = $(this).attr("data-order-url");
     console.log(Order_url);
     COL_true.attr('href',Order_url);
